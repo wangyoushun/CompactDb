@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE compactdb-scripts PUBLIC
+    "-//compactdb/compactdb Script DTD 1.0//EN"
+    "http://www.iwantfly.sh.cn/compactdb-scripts-1.0.dtd" >
+<compactdb-scripts namespace="user">
+	<default>
+		<script name="querUser">
+			<sql>
+				<![CDATA[
+					select * from  user
+					where 1=1 
+					<#if name?exists&&name.isNotEmpty()>
+						and name='${name}'
+					</#if>
+				]]>
+			</sql>
+			<parameters>
+			<parameter name="name" datatype="string"/>
+
+			</parameters>
+		</script>
+		<script name="querUser2">
+			<sql>
+				<![CDATA[
+					select * from  user
+					where 1=1 
+					and name=?
+				]]>
+			</sql>
+			<parameters>
+			<parameter name="name" datatype="string"/>
+			</parameters>
+		</script>
+	</default>
+</compactdb-scripts>

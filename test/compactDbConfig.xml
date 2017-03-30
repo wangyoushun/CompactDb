@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE compactdb-configuration PUBLIC
+    "-//compactdb/compactdb Script DTD 1.0//EN"
+    "http://www.iwantfly.sh.cn/compactdb-configuration-1.0.dtd" >
+    
+<compactdb-configuration>
+	<compactdb>
+		<properties>
+			<property name="compactdb.showsql">true</property>
+			<property name="compactdb.resource.reload">false</property>
+		</properties>
+	</compactdb>
+	
+	<databases>
+		<database name="default">
+			<properties>
+				<!-- 参数配置 -->
+				<property name="compactdb.database.type">mysql</property>
+				<property name="compactdb.database.connection.driverclass">com.mysql.jdbc.Driver</property>
+				<property name="compactdb.database.connection.url">jdbc:mysql://localhost:3306/mybatis</property>
+				<property name="compactdb.database.connection.user">root</property>
+				<property name="compactdb.database.connection.password">root</property>
+				<property name="compactdb.database.c3p0.poolsize">4</property>
+				<property name="compactdb.database.c3p0.maxidletime">0</property>
+			</properties>
+			
+			<tables>
+				<!-- 根据主键操作表 配置-->
+				<table id="user" name="user"  />
+			</tables>
+			<scripts>
+			<!-- 查询资源 -->
+			<script resource="user.xml" />
+			</scripts>
+		</database>
+	</databases>
+</compactdb-configuration>

@@ -1,0 +1,28 @@
+<!-- Compactdb script configuration document.
+
+<!DOCTYPE compactdb-scripts PUBLIC
+    "-//compactdb/compactdb Script DTD 1.0//EN"
+    "http://www.iwantfly.sh.cn/compactdb-scripts-1.0.dtd" >
+-->
+
+<!ELEMENT compactdb-scripts (default?, oracle?, sybase?, mysql?)>
+<!ATTLIST compactdb-scripts
+	namespace CDATA #REQUIRED
+>
+<!ELEMENT default (script+)>
+<!ELEMENT oracle (script+)>
+<!ELEMENT sybase (script+)>
+<!ELEMENT mysql (script+)>
+<!ELEMENT script (sql, parameters?)>
+<!ATTLIST script
+	name CDATA #REQUIRED
+	isquery (true | false) "true"
+>
+<!ELEMENT sql (#PCDATA)>
+<!ELEMENT parameters (parameter+)>
+<!ELEMENT parameter EMPTY>
+<!ATTLIST parameter
+	name CDATA #REQUIRED
+	datatype (string | int | long | date | decimal | binary | cursor) "string"
+	type (in | out) "in"
+>
